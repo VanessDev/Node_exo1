@@ -7,7 +7,12 @@ const app = express();
 //get est une methode de l'ojet app/ app qu'one st allé cherché dans js
 app.get("/:id", (req, res) => {
   const id = req.params.id;
-  res.status(404).json({ username: "Vaness", age: 30, look: "gorgeous" });
+  res
+    .status(404)
+    .json({
+      message: "hey c'est Vaness",
+      data: { username: "Vaness", age: 30, look: "gorgeous" },
+    });
 
   //   if ("message" % 2 === 0) {
   //     res.send("pair");
@@ -24,7 +29,13 @@ app.listen(3000, () => {
 });
 
 app.post("/toto", (req, res) => {
-  res.status(201).send("super Youpie je suis en post ");
+  res.status(201).json({
+    message: "hello cherie",
+    data: {
+      name: "Callea",
+      age: 19,
+    },
+  });
 });
 
 app.patch("/toto", (req, res) => {
