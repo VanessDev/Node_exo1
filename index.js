@@ -5,13 +5,15 @@ const express = require("express");
 const app = express();
 
 //get est une methode de l'ojet app/ app qu'one st allé cherché dans js
-app.get('/:id', (req, res) => {
-    const id = req.params.id;
-  if ("message" % 2 === 0) {
-    res.send("pair");
-  } else {
-    res.send("impair");
-  }
+app.get("/:id", (req, res) => {
+  const id = req.params.id;
+  res.status(404).json({ username: "Vaness", age: 30, look: "gorgeous" });
+
+  //   if ("message" % 2 === 0) {
+  //     res.send("pair");
+  //   } else {
+  //     res.send("impair");
+  //   }
 });
 
 //démarrer mon serveur sur le port 3000
@@ -22,7 +24,7 @@ app.listen(3000, () => {
 });
 
 app.post("/toto", (req, res) => {
-  res.send("super Youpie je suis en post ");
+  res.status(201).send("super Youpie je suis en post ");
 });
 
 app.patch("/toto", (req, res) => {
@@ -31,4 +33,8 @@ app.patch("/toto", (req, res) => {
 
 app.put("/toto", (req, res) => {
   res.send("super Youpie je suis en put ");
+});
+
+app.delete("/toto", (req, res) => {
+  res.status(404).json({ message: "cannot delete" });
 });
