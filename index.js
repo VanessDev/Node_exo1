@@ -3,13 +3,15 @@ const express = require("express");
 
 //creation de l'application
 const app = express();
+const router = require("./index.js");
+//express.router
+// ...
+app.use("/index", index);
 
 //get est une methode de l'ojet app/ app qu'one st allé cherché dans js
 app.get("/:id", (req, res) => {
   const id = req.params.id;
-  res
-    .status(404)
-    .json({
+  res.status(404).json({
       message: "hey c'est Vaness",
       data: { username: "Vaness", age: 30, look: "gorgeous" },
     });
